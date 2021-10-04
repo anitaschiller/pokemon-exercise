@@ -1,8 +1,11 @@
 export const getPokemonList = async ({ limit = 20 } = {}) => {
-  // TODO: fetch pokemon list
-  return [];
+  const result = await fetch('https://pokeapi.co/api/v2/pokemon');
+  const data = await result.json();
+  return data.results;
 };
 
 export const getPokemon = async ({ name } = {}) => {
-  // TODO: fetch pokemon by name
+  const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const data = result.json();
+  return data;
 };
